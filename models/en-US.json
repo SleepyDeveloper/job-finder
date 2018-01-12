@@ -1,0 +1,366 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "job finder",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "OccupationMatchIntent",
+          "slots": [
+            {
+              "name": "richness",
+              "type": "richnessType",
+              "samples": [
+                "{I_Want} to be {richness}",
+                "{richness}"
+              ]
+            },
+            {
+              "name": "personality",
+              "type": "personalityType",
+              "samples": [
+                "{I_Am} {article} {personality}",
+                "{personality}"
+              ]
+            },
+            {
+              "name": "affectionTarget",
+              "type": "affectionTargetType",
+              "samples": [
+                "{I_Like} {affectionTarget}",
+                "{affectionTarget}"
+              ]
+            },
+            {
+              "name": "bloodTolerance",
+              "type": "bloodToleranceType",
+              "samples": [
+                "I would {bloodTolerance}",
+                "{bloodTolerance}"
+              ]
+            },
+            {
+              "name": "I_Like",
+              "type": "iSubjectType"
+            },
+            {
+              "name": "I_Want",
+              "type": "iSubjectType"
+            },
+            {
+              "name": "article",
+              "type": "articleType"
+            },
+            {
+              "name": "I_Am",
+              "type": "IAmType"
+            }
+          ],
+          "samples": [
+            "recommend a job",
+            "{I_Like} {affectionTarget}",
+            "{I_Like} {bloodTolerance}",
+            "{I_Am} {article} {personality}",
+            "{I_Want} to be {richness}",
+            "to recommend a job"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "animals",
+                "synonyms": [
+                  "dogs",
+                  "cats",
+                  "birds",
+                  "turtles",
+                  "puppies",
+                  "kittens",
+                  "elephants"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "people",
+                "synonyms": [
+                  "men",
+                  "women",
+                  "kids",
+                  "humans"
+                ]
+              }
+            }
+          ],
+          "name": "affectionTargetType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "a",
+                "synonyms": []
+              }
+            },
+            {
+              "name": {
+                "value": "an",
+                "synonyms": []
+              }
+            }
+          ],
+          "name": "articleType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "low",
+                "synonyms": [
+                  "yuck",
+                  "no way",
+                  "gross",
+                  "I can't stand it",
+                  "can't stand it",
+                  "throw up when I see it",
+                  "scream"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "high",
+                "synonyms": [
+                  "I like blood",
+                  "doesn't bother me",
+                  "blood is natural",
+                  "shrug"
+                ]
+              }
+            }
+          ],
+          "name": "bloodToleranceType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "I am",
+                "synonyms": []
+              }
+            }
+          ],
+          "name": "IAmType"
+        },
+        {
+          "values": [
+            {
+              "id": "true",
+              "name": {
+                "value": "positive",
+                "synonyms": [
+                  "I want",
+                  "I prefer",
+                  "I really like",
+                  "I love",
+                  "I like"
+                ]
+              }
+            },
+            {
+              "id": "false",
+              "name": {
+                "value": "negative",
+                "synonyms": [
+                  "I don't want",
+                  "I really don't like",
+                  "I don't like",
+                  "I hate"
+                ]
+              }
+            }
+          ],
+          "name": "iSubjectType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "extrovert",
+                "synonyms": [
+                  "social butterfly",
+                  "love to party"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "introvert",
+                "synonyms": [
+                  "to be alone",
+                  "misunderstood"
+                ]
+              }
+            }
+          ],
+          "name": "personalityType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "poor",
+                "synonyms": [
+                  "money is evil",
+                  "money is not important",
+                  "not a sell out"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "middle-class",
+                "synonyms": [
+                  "just enough"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "rich",
+                "synonyms": [
+                  "high salary",
+                  "filthy rich",
+                  "billionaire"
+                ]
+              }
+            }
+          ],
+          "name": "richnessType"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "OccupationMatchIntent",
+          "confirmationRequired": false,
+          "slots": [
+            {
+              "name": "richness",
+              "type": "richnessType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Intent-OccupationMatchIntent.IntentSlot-richness"
+              }
+            },
+            {
+              "name": "personality",
+              "type": "personalityType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Intent-OccupationMatchIntent.IntentSlot-personality"
+              }
+            },
+            {
+              "name": "affectionTarget",
+              "type": "affectionTargetType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Intent-OccupationMatchIntent.IntentSlot-affectionTarget"
+              }
+            },
+            {
+              "name": "bloodTolerance",
+              "type": "bloodToleranceType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Intent-OccupationMatchIntent.IntentSlot-bloodTolerance"
+              }
+            },
+            {
+              "name": "I_Like",
+              "type": "iSubjectType",
+              "elicitationRequired": false,
+              "confirmationRequired": false
+            },
+            {
+              "name": "I_Want",
+              "type": "iSubjectType",
+              "elicitationRequired": false,
+              "confirmationRequired": false
+            },
+            {
+              "name": "article",
+              "type": "articleType",
+              "elicitationRequired": false,
+              "confirmationRequired": false
+            },
+            {
+              "name": "I_Am",
+              "type": "IAmType",
+              "elicitationRequired": false,
+              "confirmationRequired": false
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Intent-OccupationMatchIntent.IntentSlot-richness",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Would you like to be rich, middle-class or poor?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Intent-OccupationMatchIntent.IntentSlot-personality",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Would you say that you are an introvert or an extrovert?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Intent-OccupationMatchIntent.IntentSlot-affectionTarget",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Between animals and people which do you prefer?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Intent-OccupationMatchIntent.IntentSlot-bloodTolerance",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "If you saw blood would you scream or shrug?"
+          }
+        ]
+      }
+    ]
+  }
+}
