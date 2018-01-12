@@ -38,8 +38,8 @@ var handlers = {
     },
     'LaunchRequest': function () {
         console.log("in LaunchRequest");
-        this.response.speak('Welcome to Job Finder. I will recommend the best job for you. Would you say that you are an introvert or an extrovert?');
-        this.response.listen('Would you say that you are an introvert or an extrovert?');
+        this.response.speak('Welcome to Job Finder. I will recommend the best job for you. Which would you like do want a career or do you want to be a couch potato?');
+        this.response.listen('Do you want a career or to be a couch potato?');
         this.emit(':responseReady');
     },
     'OccupationMatchIntent' : function () {
@@ -60,7 +60,7 @@ var handlers = {
         let key = `${slotValues.richness.resolved}-${slotValues.personality.resolved}-${slotValues.bloodTolerance.resolved}-${slotValues.affectionTarget.resolved}`;
         let occupation = occupations[slotsToOccupationMap[key]];
 
-        console.log(key, occupation);
+        console.log("look up key: ", key,  "object: ", occupation);
 
         let speechOutput = 'So you want to be ' + slotValues.richness.resolved +
                            '. You are an ' + slotValues.personality.resolved + 
@@ -69,7 +69,7 @@ var handlers = {
                            ' tolerate blood ' +
                            '. You should consider being a ' + occupation.name;
 
-        console.log(speechOutput);
+        console.log("Speech output: ", speechOutput);
         this.response.speak(speechOutput);
         this.emit(':responseReady');
 
@@ -82,8 +82,8 @@ var handlers = {
         this.emit(':responseReady');
     },
     'AMAZON.HelpIntent' : function() {
-        this.response.speak("This is pet match. I can help you find the perfect pet for you. " +
-             "You can say, recommend a job.").listen("");
+        this.response.speak("This is Job Finder. I can help you find the perfect job. " +
+             "You can say, recommend a job.").listen("Would you like a career or do you want to be a couch potato?");
         this.emit(':responseReady');
     },
     'AMAZON.CancelIntent' : function() {
