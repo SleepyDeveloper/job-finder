@@ -310,14 +310,13 @@ function delegateSlotCollection(shouldFillSlotsWithTestData) {
 
         disambiguateSlot.call(this);
         console.log("disambiguated: " + JSON.stringify(this.event));
-        return this.emit(":delegate", updatedIntent);
-        console.log('shouldnt see this.');
+        this.emit(":delegate", updatedIntent);
     } else if (this.event.request.dialogState !== "COMPLETED") {
         console.log("in not completed");
         //console.log(JSON.stringify(this.event));
 
         disambiguateSlot.call(this);
-        return this.emit(":delegate", updatedIntent);
+        this.emit(":delegate", updatedIntent);
     } else {
         console.log("in completed");
         //console.log("returning: "+ JSON.stringify(this.event.request.intent));
@@ -325,6 +324,7 @@ function delegateSlotCollection(shouldFillSlotsWithTestData) {
         // so call your normal intent handler.
         return this.event.request.intent.slots;
     }
+    return null;
 }
 
 
