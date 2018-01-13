@@ -63,7 +63,7 @@ var handlers = {
         console.log(JSON.stringify(slotValues));
 
         let key = `${slotValues.richness.resolved}-${slotValues.personality.resolved}-${slotValues.bloodTolerance.resolved}-${slotValues.affectionTarget.resolved}`;
-        let occupation = occupations[slotsToOccupationMap[key]];
+        let occupation = options[slotsToOptionsMap[key]];
 
         console.log("look up key: ", key,  "object: ", occupation);
 
@@ -125,7 +125,7 @@ const REQUIRED_SLOTS = [
     'richness'
 ];
 
-const slotsToOccupationMap = {
+const slotsToOptionsMap = {
     "poor-introvert-low-animals": 20,
     "poor-introvert-low-people": 8,
     "poor-introvert-high-animals": 1,
@@ -152,7 +152,7 @@ const slotsToOccupationMap = {
     "rich-extrovert-high-people": 5,
 };
 
-const occupations = [
+const options = [
     {  "name": "Actor", "description": "" },
     {  "name": "Animal Control Worker", "description": "" },
     {  "name": "Animal Shelter Manager", "description": "" },
