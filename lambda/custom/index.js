@@ -38,8 +38,13 @@ var handlers = {
     },
     'LaunchRequest': function () {
         console.log("in LaunchRequest");
-        this.response.speak('Welcome to Job Finder. I will recommend the best job for you. Which would you like do want a career or do you want to be a couch potato?');
+        this.response.speak('Welcome to Job Finder. I will recommend the best job for you. Do you want to start your career or be a couch potato?');
         this.response.listen('Do you want a career or to be a couch potato?');
+        this.emit(':responseReady');
+    },
+    'CouchPotatoIntent' : function() {
+
+        this.response.speak("You don't want to start your career? Have fun wasting away on the couch.");
         this.emit(':responseReady');
     },
     'OccupationMatchIntent' : function () {

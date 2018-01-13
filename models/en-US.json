@@ -16,6 +16,13 @@
           "samples": []
         },
         {
+          "name": "CouchPotatoIntent",
+          "samples": [
+            "couch potato",
+            "lazy"
+          ]
+        },
+        {
           "name": "OccupationMatchIntent",
           "slots": [
             {
@@ -73,7 +80,8 @@
             "{I_Like} {bloodTolerance}",
             "{I_Am} {article} {personality}",
             "{I_Want} to be {richness}",
-            "to recommend a job"
+            "to recommend a job",
+            "start my career"
           ]
         }
       ],
